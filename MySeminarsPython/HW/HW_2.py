@@ -36,6 +36,8 @@
 # line = 'оорррорррроооорооор'
 # print(len(max(line.split('р'),key = len)))
 
+
+# Задача Орел и Решка
 line = 'ооррроррооор'
 max_len = 0
 while True:

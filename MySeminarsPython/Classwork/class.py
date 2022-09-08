@@ -64,3 +64,77 @@
 #     if b[i:i + len(a)] == a:
 #         count += 1 
 # print(count)
+
+# fname=input('file: ')
+# f=open(fname, 'w')
+
+# while True:
+#     s=input()
+#     if s=="":
+#         break
+#     f.write(s+ '\n')
+# f.close()
+
+
+# a=input()
+# b=input()
+# c = a+"-"+b
+# m = {'камень-камень': 'ничья', 'камень-ножницы': 'Тимур', 'камень-бумага': 'Руслан',
+#     'камень-ящерица': 'Тимур', 'камень-Спок': 'Руслан', 'ножницы-ножницы': 'ничья',
+#     'ножницы-бумага': 'Тимур', 'ножницы-камень': 'Руслан', 'ножницы-ящерица': 'Тимур',
+#     'ножницы-Спок': 'Руслан', 'бумага-бумага': 'ничья', 'бумага-камень': 'Тимур',
+#     'бумага-ножницы': 'Руслан', 'бумага-ящерица': 'Руслан', 'бумага-Спок': 'Руслан',
+#     'ящерица-ящерица': 'ничья', 'ящерица-Спок': 'Тимур', 'ящерица-ножницы': 'Руслан',
+#     'ящерица-бумага': 'Тимур', 'ящерица-камень': 'Руслан', 'Спок-Спок': 'ничья',
+#     'Спок-ножницы': 'Тимур', 'Спок-бамага': 'Руслан', 'Спок-камень': 'Тимур',
+#     'Спок-ящерица': 'Руслан'}
+
+# print(m[c])
+
+# finp = open('file.txt', 'r')
+# count = 0
+# for line in finp:
+#     count += 1
+#     print(len(line))
+#     print(len(line.split()))
+
+# print(f'количество строк в файле: {count}')
+# finp.close()
+
+# import time
+
+
+# def GetRand(x, y):
+#     count = y - x
+#     result = int(time.time()) % count
+#     return result + x
+
+
+# print(GetRand(13, 222))
+# print(time.time())
+
+# inp = list(map(str, input('Введите список: ').split()))
+# inp = list('njkmnkl', 'ijhkj', 123)
+# N = int(input('Введите искомое число: '))
+# if str(N) in inp:
+#     print(f'Число {N} есть в списке')
+# else:
+#     print(f'Числа {N} в списке нет')
+
+b = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+count = 0
+for i in range(len(b)):
+    if b[i] == b[0]:
+        count += 1
+        if count == 2:
+            print(i+1)
+            break
+
+
+spisok = ['строка1', 'строка2', 'строка3', 'строка1']
+find_str = 'строка1'
+if spisok.count(find_str) < 2:
+    print(f'Второго вхождения строки {find_str} нет в заданном списке')
+else:
+    spisok1 = spisok[spisok.index(find_str) + 1:] # отрезаем первой вхождение
+    print(spisok1.index(find_str) + (len(spisok) - len(spisok1))) # ищем строку в оставшемся списке и прибавляем то количество элементов, которое отрезали
