@@ -121,20 +121,70 @@
 # else:
 #     print(f'Числа {N} в списке нет')
 
-b = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
-count = 0
-for i in range(len(b)):
-    if b[i] == b[0]:
-        count += 1
-        if count == 2:
-            print(i+1)
-            break
+# b = ["qwe", "asd", "zxc", "qwe", "ertqwe"]
+# count = 0
+# for i in range(len(b)):
+#     if b[i] == b[0]:
+#         count += 1
+#         if count == 2:
+#             print(i+1)
+#             break
 
 
-spisok = ['строка1', 'строка2', 'строка3', 'строка1']
-find_str = 'строка1'
-if spisok.count(find_str) < 2:
-    print(f'Второго вхождения строки {find_str} нет в заданном списке')
-else:
-    spisok1 = spisok[spisok.index(find_str) + 1:] # отрезаем первой вхождение
-    print(spisok1.index(find_str) + (len(spisok) - len(spisok1))) # ищем строку в оставшемся списке и прибавляем то количество элементов, которое отрезали
+# spisok = ['строка1', 'строка2', 'строка3', 'строка1']
+# find_str = 'строка1'
+# if spisok.count(find_str) < 2:
+#     print(f'Второго вхождения строки {find_str} нет в заданном списке')
+# else:
+#     spisok1 = spisok[spisok.index(find_str) + 1:] # отрезаем первой вхождение
+#     print(spisok1.index(find_str) + (len(spisok) - len(spisok1))) # ищем строку в оставшемся списке и прибавляем то количество элементов, которое отрезали
+
+# t = {'a':'а', 'b':'б', 'v':'в', 'g':'г', 'd':'д', 'e':'е', 'zh':'ж', 'z':'з', 'i':'и', 'y':'й', 'k':'к', 'l':'л',
+# 'm':'м', 'n':'н', 'o':'о',
+# 'p':'п', 'r':'р', 's':'с','t':'т', 'u':'у', 'f':'ф', 'kh':'х', 'ts':'ц',
+# 'ch':'ч', 'sh':'ш', 'shch':'щ',"'":'ь', 'ie':'э', 'yu':'ю', 'ya':'я'}
+# a = list(input())
+# for i in range(len(a)):
+#     print(t[a[i]], end='')
+
+# from random import randint
+
+# a = int(input('Введите число '))
+# list1 = []
+
+
+# for i in range(a):
+#     f = randint(-a, a)
+#     list1.append(f)
+# print(list1)
+# print(f'Минимальное {min(list1)} и максимальное {max(list1)} числа')
+def discriminant(a, b, c):
+    return b ** 2 - 4 * a * c
+
+
+def solve_quadratic(a, b, c):
+    if a == 0:
+        raise ValueError("Not quadratic equation")
+
+d = discriminant(a, b, c)
+if d < 0:
+    return "No roots"
+    elif d == 0:
+            eturn f"One root x = {-b / (2 * a)}"
+        else:
+            x1 = (-b + d ** 0.5) / (2 * a)
+            x2 = (-b - d ** 0.5) / (2 * a)
+        return f"Two roots: x1 = {x1}, x2 = {x2}"
+
+    if __name__ == "__main__":
+    print(solve_quadratic(5, -9, -2))
+print(solve_quadratic(1, -4, 4))
+print(solve_quadratic(1, -5, 9))
+print(solve_quadratic(0, 1, 2))
+
+inp = list(map(str, input().split()))
+ans = list()
+for i in inp:
+    if i.isdigit():
+        ans.append(i)
+print(f'Максимум в строке равен {max(ans)}, минимум в строке равен {min(ans)}')
