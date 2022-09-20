@@ -158,33 +158,107 @@
 #     list1.append(f)
 # print(list1)
 # print(f'Минимальное {min(list1)} и максимальное {max(list1)} числа')
-def discriminant(a, b, c):
-    return b ** 2 - 4 * a * c
+# def discriminant(a, b, c):
+#     return b ** 2 - 4 * a * c
 
 
-def solve_quadratic(a, b, c):
-    if a == 0:
-        raise ValueError("Not quadratic equation")
+# def solve_quadratic(a, b, c):
+#     if a == 0:
+#         raise ValueError("Not quadratic equation")
 
-d = discriminant(a, b, c)
-if d < 0:
-    return "No roots"
-    elif d == 0:
-            eturn f"One root x = {-b / (2 * a)}"
-        else:
-            x1 = (-b + d ** 0.5) / (2 * a)
-            x2 = (-b - d ** 0.5) / (2 * a)
-        return f"Two roots: x1 = {x1}, x2 = {x2}"
+# d = discriminant(a, b, c)
+# if d < 0:
+#     return "No roots"
+#     elif d == 0:
+#             eturn f"One root x = {-b / (2 * a)}"
+#         else:
+#             x1 = (-b + d ** 0.5) / (2 * a)
+#             x2 = (-b - d ** 0.5) / (2 * a)
+#         return f"Two roots: x1 = {x1}, x2 = {x2}"
 
-    if __name__ == "__main__":
-    print(solve_quadratic(5, -9, -2))
-print(solve_quadratic(1, -4, 4))
-print(solve_quadratic(1, -5, 9))
-print(solve_quadratic(0, 1, 2))
+#     if __name__ == "__main__":
+#     print(solve_quadratic(5, -9, -2))
+# print(solve_quadratic(1, -4, 4))
+# print(solve_quadratic(1, -5, 9))
+# print(solve_quadratic(0, 1, 2))
 
-inp = list(map(str, input().split()))
-ans = list()
-for i in inp:
-    if i.isdigit():
-        ans.append(i)
-print(f'Максимум в строке равен {max(ans)}, минимум в строке равен {min(ans)}')
+# inp = list(map(str, input().split()))
+# ans = list()
+# for i in inp:
+#     if i.isdigit():
+#         ans.append(i)
+# print(f'Максимум в строке равен {max(ans)}, минимум в строке равен {min(ans)}')
+
+
+# Наибольший общий делитель
+def NOD(a,b):
+    if a % b == 0:
+        return b
+    else:
+        return NOD(b, a % b)
+
+print(NOD(58, 20))
+
+# 1
+# if a < b :
+#     a, b = b, a
+
+# while b!=0:
+#     a, b = b, a % b
+
+# print(a)
+
+# 2
+# while a != b:
+#     if a > b:
+#         a -= b
+#     else:
+#         b -= a
+
+# print(a)
+# 3
+# C = gcd(a,b)
+
+# contains = lambda s, sample = 'ra': sample in s
+# s = input()
+# print(contains(s))
+
+# import random
+# def x(b=None):
+#     if b is None:
+#         b = random.randint(1, 10)
+
+#     a=b+1
+#     print(a)
+# x_random1=x()
+# x_random2=x()
+
+# A = [1, 2, 3, 4, 6, 7]
+# for i in range(1, len(A)):
+#     if A[i]-1 != A[i-1]:
+#         print(A[i-1]+1)
+
+# def find_num(lst):
+#     for i in range(1, len(lst)):
+#         if lst[i] - lst[i - 1] > 1:
+#             return i, lst[i] - 1
+#     return -1, -1
+
+
+# with open("data.txt", "r") as fin:
+#     lst = [int(i) for i in fin.readline().split()]
+#     print(lst)
+#     pos, num = find_num(lst)
+#     print(pos,num)
+#     if (pos != -1):
+#         lst.insert(pos, num)
+#     print(lst)
+
+with open("words.txt", "r") as fin:
+    for line in fin:
+        words = line.split()
+        for word in words:
+            if "абв" in word:
+                words.remove(word)
+        sentence = " ".join(words)
+        print(sentence)

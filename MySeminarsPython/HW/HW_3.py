@@ -21,7 +21,16 @@
 # for i in range((len(list_initial)+1)//2):
 #     list_final.append(list_initial[i]*list_initial[len(list_initial)-1-i])
 # print(list_final)
-
+# second option
+# a = [2, 3, 5, 9, 3, 2, 3]
+# s = []
+# i = 0
+# ii = len(a) - 1
+# while i < (len(a)/2):
+#     s.append(a[i]*a[ii])
+#     i += 1
+#     ii -= 1
+# print(s)
 # Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
 # Пример:
 # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
@@ -42,6 +51,12 @@
 # - 3 -> 11
 # - 2 -> 10
 
+# number = int(input('Введите число : '))
+# print(f'{number} -> {bin(number)[2:]}')
+
+# num = int(input('Please enter your number: '))
+
+# print(f'{num:b}')
 
 # Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
 # Пример:
