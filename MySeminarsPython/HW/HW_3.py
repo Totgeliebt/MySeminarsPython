@@ -10,7 +10,7 @@
 #         sum += numbers[i]
 # print(sum)     
 
-
+# print(sum(res))
 # Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент,
 #  второй и предпоследний и т.д.
 # Пример:
@@ -21,6 +21,7 @@
 # for i in range((len(list_initial)+1)//2):
 #     list_final.append(list_initial[i]*list_initial[len(list_initial)-1-i])
 # print(list_final)
+
 # second option
 # a = [2, 3, 5, 9, 3, 2, 3]
 # s = []
@@ -31,6 +32,7 @@
 #     i += 1
 #     ii -= 1
 # print(s)
+
 # Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
 # Пример:
 # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
@@ -71,3 +73,4 @@
 #     fib_list.append(fib_list[-2] + fib_list[-1])
 #     fib_list.insert(0, fib_list[1] - fib_list[0])
 # print(fib_list)
+
