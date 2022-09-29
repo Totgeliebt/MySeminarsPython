@@ -1,7 +1,7 @@
-from os.path  
+from os.path import exists
 from CSV_creating import creating
-from File_writing import writing_scv
-from File_writing import writing_txt
+from file_writing import writing_scv
+from file_writing import writing_txt
 
 
 path = 'Phonebook.csv'
