@@ -191,13 +191,13 @@
 
 
 # Наибольший общий делитель
-def NOD(a,b):
-    if a % b == 0:
-        return b
-    else:
-        return NOD(b, a % b)
+# def NOD(a,b):
+#     if a % b == 0:
+#         return b
+#     else:
+#         return NOD(b, a % b)
 
-print(NOD(58, 20))
+# print(NOD(58, 20))
 
 # 1
 # if a < b :
@@ -254,11 +254,118 @@ print(NOD(58, 20))
 #         lst.insert(pos, num)
 #     print(lst)
 
-with open("words.txt", "r") as fin:
-    for line in fin:
-        words = line.split()
-        for word in words:
-            if "абв" in word:
-                words.remove(word)
-        sentence = " ".join(words)
-        print(sentence)
+# with open("words.txt", "r") as fin:
+#     for line in fin:
+#         words = line.split()
+#         for word in words:
+#             if "абв" in word:
+#                 words.remove(word)
+#         sentence = " ".join(words)
+#         print(sentence)
+
+
+# 1.Вводится список целых чисел в одну строчку через пробел. Необходимо оставить в нем только двузначные числа. Реализовать программу с использованием функции filter. Результат отобразить на экране в виде последовательности оставшихся чисел в одну строчку через пробел.
+# пример - 8 11 0 -23 140 1 => 11 -23
+# print(*filter(lambda x: len(str(abs(int(x)))) == 2, input().split()))
+
+# Дан список, вывести отдельно буквы и цифры.
+# a = ( "a", 'b', '2', '3' ,'c')
+# b = ( 'a' , 'b' , 'c')
+# c = ( '1', '2', '3')
+# a = ( "a", 'b', '2', '3' ,'c')
+# b = ( 'a' , 'b' , 'c')
+# c = ( '1', '2', '3')
+
+
+# b = filter(str.isalpha, a)
+# c = filter(str.isdigit, a)
+
+# print(*b)
+# print(*c)
+
+# 3. Преобразовать набора списков
+# users = ['user1','user2','user3','user4','user5']
+# ids = [4, 5, 9, 14, 7]
+# salary = [111,222,333]
+# в другой набор
+# ['user1', 4, 111]
+# ['user2', 5, 222]
+# ['user3', 9, 333]
+# и потом вернуть в исходное состояние
+# ['user1', 'user2', 'user3']
+# [4, 5, 9]
+# [111, 222, 333]
+
+# a,b,c = map(list,zip(users, ids, salary))
+# print(a,b,c, sep="\n")
+# a,b,c= map(list,zip(a,b,c))
+
+# print(a,b,c, sep="\n")
+
+# 4. Напишите программу, которая подсчитает и выведет сумму квадратов всех двузначных чисел, делящихся на 9.
+# При решении задачи используйте комбинацию функций filter, map, sum.
+
+# Обратите внимание: на 9 должно делиться исходное двузначное число, а не его квадрат.
+
+# list1 = [i for i in range(10, 100)]
+# list2 = list(filter(lambda x: x%9 == 0, list1))
+# list3 = sum(list(map(lambda x: x**2, list2)))
+# print(list1)
+# print(list3)
+
+def show_menu() -> int:
+    print("\n" + "=" * 20)
+    print("Выберите необходимое действие")
+    print("1. Найти сотрудника")
+    print("2. Сделать выборку сотрудников по должности")
+    print("3. Сделать выборку сотрудников по зарплате")
+    print("4. Добавить сотрудника")
+    print("5. Удалить сотрудника")
+    print("6. Обновить данные сотрудника")
+    print("7. Экспортировать данные в формате json")
+    print("8. Экспортировать данные в формате cmv")
+    print("9. Закончить работу")
+    return int(input("Введите номер необходимого действия: "))
+
+    # fields = ["id", "last_name", "first_name", "position", "phone_number", "salary"]
+
+def read_csv() -> list:
+    employee = []
+    with open(Path.cwd() / 'database.csv', 'r', encoding='utf-8') as fin:
+        csv_reader = csv.reader(fin)
+        for row in csv_reader:
+            temp = {}
+            temp["id"] = int(row[0])
+            temp["last_name"] = row[1]
+            temp["first_name"] = row[2]
+            temp["position"] = row[3]
+            temp["phone_number"] = row[4]
+            temp["salary"] = float(row[5])
+            employee.append(temp)
+    return employee
+
+def find_employees_by_salary_range(employees: list) -> list:
+    result = []
+    lo, hi = get_salary_range()
+    for employee in employees:
+        if lo <= employee["salary"] <= hi:
+            result.append(employee)
+    return result
+
+def write_csv(employees: list):
+    with open(Path.cwd() / 'database.csv', 'w', encoding='utf-8') as fout:
+        csv_writer = csv.writer(fout)
+        for employee in employees:
+            csv_writer.writerow(employee.values())
+
+def run_work():
+    employees  = read_csv()
+    employee = {}
+    while True:
+        choice = show_menu()
+        if choice == 1:             # find employee
+            employee = find_employee(employees)
+            if employee is None:
+                no_employee_error()
+            else:
+                show_employee_info(employee)

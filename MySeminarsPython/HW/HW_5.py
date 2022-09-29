@@ -10,6 +10,17 @@
 # my_clean_text = del_some_words(my_text)
 # print(my_clean_text)
 
+# from encodings import utf_8
+
+# with open("words.txt", encoding='utf_8') as fin:
+#     for line in fin:
+#         words = line.split()
+#         for word in words:
+#             if 'абв' in word:
+#                 words.remove(word)
+#         sentence = " ".join(words)
+#         print(sentence)
+
 # Задача №38: Создайте программу для игры с конфетами человек против человека. 
 # Условие задачи: На столе лежит 2021 конфета. 
 # Играют два игрока делая ход друг после друга. Первый ход определяется жеребьёвкой. 
@@ -137,4 +148,42 @@
 # if __name__ == '__main__':
 #     s = 'ABBBBBBBBBCCCDDDDDDDDDDDDDDA'
 #     print(encode(s))
- 
+
+
+
+# def Compression(text): #алгоритм сжатия
+#     compresdata = ''
+
+#     i = 0
+#     while i < len(text):
+#         count = 1
+#         while i + 1 < len(text) and text[i] == text[i + 1]:
+#             count += 1
+#             i += 1
+#         compresdata += str(count) + text[i]
+#         i += 1
+
+#     return compresdata
+
+
+# def Recovery(text): #алгоритм восстановления
+#     datarecovery = ''
+
+#     i = 0
+#     while i < len(text):
+#         datarecovery += str(text[i+1]) * int(text[i])
+#         i+=2
+
+#     return datarecovery
+
+
+# with open('Text1.txt', 'r') as t1:
+#     t1 = t1.read()
+
+# with open('Text2.txt', 'w+') as t2:
+#     t2.write(Compression(t1))
+#     t2.seek(0) #возврат курсора на начало строки
+#     t2 = t2.read()
+
+# with open('Text3.txt', 'w') as t3:
+#     t3.write(Recovery(t2))

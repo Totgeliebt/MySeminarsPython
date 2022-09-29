@@ -65,12 +65,12 @@
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] 
 # [Негафибоначчи]
 
-# def fibonacci_list(k: int) -> list:
+def fibonacci_list(k: int) -> list:
 
-# k = int(input('Введите натуральное число: '))
-# fib_list = [-1, 1, 0, 1, 1]
-# for i in range(3, k+1):
-#     fib_list.append(fib_list[-2] + fib_list[-1])
-#     fib_list.insert(0, fib_list[1] - fib_list[0])
-# print(fib_list)
+k = int(input('Введите натуральное число: '))
+fib_list = [-1, 1, 0, 1, 1]
+for i in range(3, k+1):
+    fib_list.append(fib_list[-2] + fib_list[-1])
+    fib_list.insert(0, fib_list[1] - fib_list[0])
+print(fib_list)
 
