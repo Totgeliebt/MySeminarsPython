@@ -3,9 +3,6 @@ import logger as log
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update, Bot
 from telegram.ext import Updater, CommandHandler, Filters, MessageHandler, ConversationHandler
 
-TOKEN='5773125696:AAEob7v8Vbrn6dp-TiW9FJwoHm9aTKTO-0c'
-
-
 bot = Bot(token=TOKEN)
 updater = Updater(token=TOKEN)
 dispatcher = updater.dispatcher
